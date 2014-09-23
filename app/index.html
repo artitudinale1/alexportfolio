@@ -1,0 +1,229 @@
+<!doctype html>
+<!--[if lt IE 9]>
+  <html class="old-ie">
+<![endif]-->
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Alex Garulli</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <!-- css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="bower_components/ngModal/dist/ng-modal.css">
+    <!-- font -->
+    <link href='http://fonts.googleapis.com/css?family=Dosis:200,300,500,800' rel='stylesheet' type='text/css'>
+    <!-- modernizr -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+  </head>
+
+  <body data-ng-app="AlexPortfolio" id="ng-app" data-ng-controller="ContentFromFirebase" >
+    <div id="ie-wrapper1">
+      <div id="ie-wrapper2"  data-ng-controller="Loader">
+
+        <!-- lil time-based loder -->
+          <div id="preloader" class="grid" data-ng-animate="{show: 'show'}" data-ng-show="show_logo" >
+            <div class="spinner">
+              <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+              <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+              <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+            </div>
+          </div>
+
+        <!--[if lt IE 9]>
+          <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <!-- Add your site or application content here -->
+        <header id="header" class="grid ">      
+            <div class="col-2-3">
+              <div id="logo-wrapper">
+                <div id="logo" class="img"></div>
+              </div>
+
+            <div id="spacer"> </div>
+              <h1 data-ng-bind-html="content.name" ></h1>
+              <h2  data-ng-bind-html="content.position" ></h2>
+            </div>
+            <aside class="col-1-3">
+              <ul>
+                <li data-ng-bind-html="content.email"></li>
+                <li data-ng-bind-html="content.twitter"></li>
+                <li data-ng-bind-html="content.linkedin"></li>
+                <li data-ng-bind-html="content.github"></li>
+              </ul>
+            </aside>
+        </header>
+
+        <div id="main" class="grid">
+          <!-- Quote -->
+          <article>
+            <div class="quote" data-ng-bind-html="content.quote">
+            </div>
+          </article>
+
+          <!-- Intro -->
+          <article>
+              <div class="module_containeir" data-ng-bind-html="content.intro">
+              </div>
+          </article>
+
+          <!-- Education -->
+          <article >
+              <h2 id="edu" class="title" data-ng-bind-html="content.eduTitle"></h2>
+              <div class="module_containeir" data-ng-bind-html="content.eduText">    
+              </div>
+          </article>
+
+          <!-- 2 columns layout -->
+          <div class="grid">
+
+            <!-- Fisrt column - Experiences -->
+            <article class="col-1-2">
+              <h2 id="exp" class="title" data-ng-bind-html="content.expTitle"></h2>
+              <div class="module_containeir" data-ng-bind-html="content.expText">  
+              </div>
+     
+              <!-- Projects -->
+              <h2 class="title" data-ng-bind-html="content.projTitle"></h2>
+              <div class="module_containeir" data-ng-bind-html="content.projText1">
+              </div>
+              <div class="module_containeir" data-ng-bind-html="content.projText2">
+              </div>
+              <div class="module_containeir" data-ng-bind-html="content.projText3">
+              </div>
+              <div class="module_containeir" data-ng-bind-html="content.projText4">
+              </div>
+            </article>
+        
+            <!-- Second column - Skills -->
+            <article class="col-1-2">
+              <h2 id="skills" class="title" data-ng-bind-html="content.skillsTitle"></h2>
+              <div class="module_containeir">
+                 <!-- frontend skills-->
+                 <div class="skills_title bold" data-ng-bind-html="content.FeTitle"></div>
+                 <div class="skills_title gray" data-ng-bind-html="content.Html"> 
+                 </div>
+                 <div class="skills_title white" data-ng-bind-html="content.css">
+                 </div> 
+                 <div class="skills_title gray" data-ng-bind-html="content.less">
+                 </div>
+                 <div class="skills_title white "  data-ng-bind-html="content.sass">
+                 </div>
+                 <div class="skills_title gray" data-ng-bind-html="content.jquery">
+                 </div>
+                 <div class="skills_title white" data-ng-bind-html="content.JS" >
+                 </div>
+                 <div class="skills_title gray" data-ng-bind-html="content.angular">
+                 </div>
+                <!-- toolset skills-->
+                 <div class="skills_title bold" data-ng-bind-html="content.toolTitle"></div>
+                 <div class="skills_title gray" data-ng-bind-html="content.PhoneGap">
+                 </div>
+                 <div class="skills_title white" data-ng-bind-html="content.triggerio">
+                 </div>
+                 <div class="skills_title gray" data-ng-bind-html="content.git">
+                 </div>
+                 <div class="skills_title white" data-ng-bind-html="content.version">
+                 </div>
+                <!-- cms skills-->
+                <div class="skills_title bold" data-ng-bind-html="content.cmsTitle"></div>
+                <div class="skills_title gray" data-ng-bind-html="content.django">
+                </div>
+                <div class="skills_title white" data-ng-bind-html="content.wordpress">
+                </div>
+                <!-- backend skills-->
+                <div class="skills_title bold" data-ng-bind-html="content.bkeTitle"></div>
+                <div class="skills_title gray" data-ng-bind-html="content.python">
+                </div>
+                <div class="skills_title white" data-ng-bind-html="content.php">
+                </div>
+            </div> <!-- end module container skills -->
+          </article>
+
+        </div> <!-- close row -->
+
+          <!-- new row  -->
+          <div class="grid">
+           
+            <!-- First Column - FunFacts -->
+            <article id="fun-facts" class="col-1-2">
+                <h2 id="fun-title" class="title" data-ng-bind-html="content.ffTitle"></h2>
+                <div class="module_containeir" data-ng-bind-html="content.ffText">     
+                </div>
+            </article>
+            <!-- Second Column - empty4now -->
+            <article  class="col-1-2">
+            </article>
+          </div>
+
+        </div><!-- close main -->
+
+        <footer class="grid">
+            <div class="module_containeir">
+              <!-- FIRST MODAL LINK -->
+                <div ng-controller='SiteWasBuiltCtrl'>
+                    <modal-dialog show='myData.modalShown' on-close='logClose()'>
+                       <h2 class="title" data-ng-bind-html="content.modal1Title" ></h2>
+                       <div data-ng-bind-html="content.modal1Text"></div>
+                    </modal-dialog>
+                    <a href="#" ng-click='toggleModal()'class="ie-hide" data-ng-bind-html="content.linkModal1"></a>
+                </div>
+                <!-- SECOND MODAL LINK -->
+                <div ng-controller='SiteSupportCtrl' >
+                    <modal-dialog show='myData.modalShown'   on-close='logClose()'>
+                       <h2 class="title" data-ng-bind-html="content.Modal2Title"></h2>
+                       <div data-ng-bind-html="content.Modal2Text"></div>
+                    </modal-dialog>
+                    <a href="#"  ng-click='toggleModal()'class="ie-hide" data-ng-bind-html="content.linkModal2" ></a>
+                </div>
+                <small data-ng-bind-html="content.credit"></small>
+            </div>
+          </footer>
+
+
+          <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+           <script>
+             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+             ga('create', 'UA-XXXXX-X');
+             ga('send', 'pageview');
+          </script>
+
+          <!-- AngularFire is using object.defineproperty  not supported in IE8 so calling ECMAScript 5 Polyfills -->
+          <script src="bower_components/es5/es5.js"></script>
+           <!-- Angularjs/Firebase setting + dependances -->
+          <script src="bower_components/angular/angular.js"></script>
+          <script src="bower_components/firebase/firebase.js"></script>
+          <script src="bower_components/ngModal/dist/ng-modal.js"></script>
+          <script src="bower_components/angularfire/dist/angularfire.js"></script>
+          <!-- to parse html to Angular -->
+          <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+
+          <!-- my app & controllers -->
+          <script src="scripts/app.js"></script>
+          <script src="scripts/controllers/main.js"></script>
+      </div>
+    </div>
+  </body>
+</html>
