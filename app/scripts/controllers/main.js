@@ -26,7 +26,6 @@
     var sync = $firebase(ref);
     //RETRIVING CONTENT AS JSON
     $scope.content = $firebase(ref).$asObject();
-    console.log($scope.content)
     // ON VALUE FRUNCTION - CONTENT UPDATED IN REAL TIME AS CHANGED IN FIREBASE
     ref.on('value', function (snapshot) {  
     $scope.content = snapshot.val();
@@ -62,10 +61,14 @@
       });
 
  
-//CONTROLLER TO SET PSEUDO LOADER - to be review and connected with Firabase data load  
+//CONTROLLER FOR LOADER WHEN FIREBASE DATA ARE LOADED
     app.controller('Loader', function($scope, $timeout) {
-        $scope.show_logo = true;
-        $timeout(function() {
-        $scope.$apply('show_logo = false');
-        }, 1500);
+        $scope.show_logo = true; // SET LOADER TO VISIBLE
+        $scope.content.$loaded( //WHEN MY DATA ARE LOADED
+ 	 function(x) { //PASS THEM INTO FUNCTION
+  	  x === $scope.content; // true //SET THEM AS MY CONTENT
+  	  $scope.show_logo = false;
+ 	 }, function(err) {
+   	 console.error(err);
+	  });
 });
