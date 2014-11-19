@@ -1,4 +1,3 @@
-
 #<b>Alex portfolio as Fronten Developer.#
 
 ##<b>BRIEF/BACKGOUND PROJECT</b>##
