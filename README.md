@@ -1,4 +1,4 @@
-#<b>Alex portfolio as Fronten Developer.#
+#<b>Alex portfolio as Frontend Developer.#
 
 ##<b>BRIEF/BACKGOUND PROJECT</b>##
 
