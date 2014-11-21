@@ -30,3 +30,4 @@ HTML5, CSS3,  SASS v 3.4.5, AngularJS  v 1.2.24, Firebase v 1.0.21 to store JSON
  - Fix ng-modal CSS to work in IE8
  - Add link to BLOG section [still in development]
    
+<b>PLESE IF YOU EXPERIMENT ANY BUGS/ERRORS/PROBLEMS TESTiNG OR CHECKING OUT THIS PROJECT</b> report it though GITHUB or @ alex.garulli@gmail.com
