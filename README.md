@@ -1,6 +1,6 @@
 #<b>Alex portfolio as Frontend Developer.#
 
-##<b>BRIEF/BACKGOUND PROJECT</b>##
+##<b>BRIEF/BACKGROUND PROJECT</b>##
 
 This is my online CV/portfolio.
 
