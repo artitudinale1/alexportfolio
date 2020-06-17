@@ -1,0 +1,23 @@
+{
+  "name": "alexportfolio",
+  "version": "1.0.0",
+  "description": "##<b>BRIEF/BACKGROUND PROJECT</b>##",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --include-path scss styles/main.scss  styles/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artitudinale1/alexportfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artitudinale1/alexportfolio/issues"
+  },
+  "homepage": "https://github.com/artitudinale1/alexportfolio#readme",
+  "dependencies": {
+    "node-sass": "^4.14.1"
+  }
+}

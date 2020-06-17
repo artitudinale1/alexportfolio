@@ -1,0 +1,621 @@
+/*
+    Document   : main.scss
+    Author     : Alex Garulli 
+    Description: Alex Portfolio
+
+    1. Reset
+    2. Variable, Mixing: media queries - ie8 and pseudo classes , Animations
+    3. Grid
+    4. General Style
+    5. Modules
+            - education
+            - experience
+            - skills
+    6. Footer
+    7. Modals 
+    8. Preloader
+    9. Debug
+
+*/
+/*
+==============================================================
+1. Reset
+==============================================================
+*/
+/*
+==============================================================
+2. Variable, Mixing, Animations
+==============================================================
+*/
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1); } }
+
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0); }
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1); } }
+
+/*
+==============================================================
+3. Grid
+==============================================================
+*/
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box; }
+
+.grid {
+  margin: 0; }
+  .grid:after {
+    /* Or @extend clearfix */
+    content: "";
+    display: table;
+    clear: both; }
+
+[class*='col-'] {
+  width: 100%; }
+  .grid [class*='col-']:last-of-type {
+    padding-right: 0; }
+  .old-ie [class*='col-'] {
+    float: left;
+    padding-right: 50px; }
+  @media only screen and (min-width: 698px) {
+    [class*='col-'] {
+      float: left;
+      padding-right: 50px; } }
+
+.old-ie .col-2-3 {
+  width: 66.66%;
+  margin-bottom: 20px; }
+
+.old-ie .col-1-3 {
+  width: 33.33%; }
+
+.old-ie .col-1-2 {
+  width: 50%; }
+
+@media only screen and (min-width: 698px) {
+  .col-2-3 {
+    width: 66.66%;
+    margin-bottom: 20px; }
+  .col-1-3 {
+    width: 33.33%; }
+  .col-1-2 {
+    width: 50%; } }
+
+/*
+==============================================================
+4. General Style
+==============================================================
+*/
+body {
+  padding: 20px 10px;
+  background: #e7e8e9;
+  font-family: 'Dosis', sans-serif;
+  color: #231f20;
+  font-size: 100%; }
+  .old-ie body {
+    padding: 20px 40px; }
+  @media only screen and (min-width: 698px) {
+    body {
+      padding: 20px 40px; } }
+
+.img {
+  background: url(../images/spry.png) no-repeat; }
+
+a, a:visited {
+  color: #d01c5d;
+  text-decoration: none; }
+
+ul {
+  padding: 0; }
+  ul li {
+    list-style: none;
+    padding: 5px 0; }
+
+#header .col-2-3 > h1 {
+  text-align: center;
+  font-weight: 500; }
+  .old-ie #header .col-2-3 > h1 {
+    text-align: left; }
+  @media only screen and (min-width: 698px) {
+    #header .col-2-3 > h1 {
+      text-align: left; } }
+
+#header .col-2-3 > h2 {
+  text-align: center;
+  font-weight: 500; }
+  .old-ie #header .col-2-3 > h2 {
+    text-align: left; }
+  @media only screen and (min-width: 698px) {
+    #header .col-2-3 > h2 {
+      text-align: left; } }
+
+#header #logo {
+  height: 89px;
+  width: 89px;
+  margin: 0 auto;
+  background-position: 10% 67%; }
+  .old-ie #header #logo {
+    background-position: 3% 40%;
+    height: 120px;
+    width: 130px;
+    float: left;
+    margin: 0; }
+  @media only screen and (min-width: 698px) {
+    #header #logo {
+      background-position: 3% 40%;
+      height: 120px;
+      width: 130px;
+      float: left;
+      margin: 0; } }
+  @media only screen and (min-width: 900px) {
+    #header #logo {
+      height: 150px;
+      width: 150px;
+      background-position: 0% 0%; } }
+
+#spacer {
+  height: 5px;
+  width: 100%;
+  background: #ffffff;
+  margin: 10px 0; }
+  @media only screen and (min-width: 698px) {
+    #spacer {
+      height: 120px;
+      width: 5px;
+      float: left;
+      margin: 0 20px; } }
+  .old-ie #spacer {
+    height: 150px; }
+  @media only screen and (min-width: 900px) {
+    #spacer {
+      height: 150px; } }
+
+h1 {
+  color: #d01c5d;
+  font-size: 1.5em; }
+  .old-ie h1 {
+    font-size: 2em; }
+  @media only screen and (min-width: 900px) {
+    h1 {
+      font-size: 2em; } }
+
+h2 {
+  text-transform: uppercase;
+  font-size: 1em;
+  line-height: 1em; }
+  .old-ie h2 {
+    font-size: 1.2em; }
+  @media only screen and (min-width: 900px) {
+    h2 {
+      font-size: 1.2em; } }
+
+aside ul li {
+  list-style: none;
+  padding: 5px 20px; }
+
+.old-ie aside ul {
+  padding-left: 10px; }
+
+@media only screen and (min-width: 900px) {
+  aside ul {
+    padding-left: 10px; } }
+
+#main .purple {
+  color: #d01c5d; }
+
+article {
+  margin: 0;
+  position: relative; }
+
+.quote {
+  background: #ffffff;
+  padding: 0 35px 20px;
+  margin-bottom: 78px;
+  width: 100%;
+  margin: 10px auto 39px;
+  font-size: 1em;
+  font-style: italic; }
+  .old-ie .quote {
+    width: 600px; }
+  @media only screen and (min-width: 900px) {
+    .quote {
+      width: 600px; } }
+  .quote p {
+    padding-left: 50px; }
+
+.quote:before {
+  position: relative;
+  display: inline-block;
+  background: url(../images/spry.png) no-repeat;
+  content: '';
+  height: 45px;
+  left: -12px;
+  width: 47px;
+  top: 7px;
+  background-position: 40% 8%; }
+
+.quote:after {
+  position: relative;
+  display: inline-block;
+  background: url(../images/spry.png) no-repeat;
+  content: '';
+  height: 45px;
+  left: 8px;
+  width: 47px;
+  top: 9px;
+  background-position: 40% 17%; }
+
+#main .module_containeir:first-child {
+  text-align: center;
+  background: #ceaab6; }
+
+.module_containeir {
+  background: #ffffff;
+  padding: 15px 10px;
+  position: relative;
+  top: -24px;
+  margin: 7px; }
+
+.title {
+  color: #ffffff;
+  background: #9e1f63;
+  display: block;
+  height: 35px;
+  text-transform: uppercase;
+  font-weight: lighter;
+  z-index: 1;
+  position: relative;
+  margin: 10px 0;
+  padding: 5px 20px 0 0;
+  width: 240px;
+  display: inline;
+  font-size: 1.2em; }
+  .old-ie .title {
+    font-size: 1.5em;
+    padding-top: 0; }
+  @media only screen and (min-width: 698px) {
+    .title {
+      font-size: 1.5em;
+      padding-top: 0; } }
+
+.title:before {
+  position: relative;
+  display: inline-block;
+  background: url(../images/spry.png) no-repeat;
+  content: '';
+  height: 51px;
+  left: -18px;
+  width: 47px;
+  top: 26px;
+  background-position: 28% 86%; }
+
+/*
+==============================================================
+5. Modules:
+      -education
+      -experiences
+      -skills
+      -fun facts
+==============================================================
+*/
+#edu:before {
+  background-position: 14% 86%; }
+
+/* - skills */
+#skills:before {
+  background-position: 41% 86%; }
+
+.skills_title {
+  background: #ceaab6;
+  color: #d01c5d;
+  height: 30px;
+  margin-top: 30px;
+  text-transform: uppercase;
+  padding: 0 5px;
+  line-height: 30px;
+  font-size: 1em; }
+
+.bold {
+  font-weight: 800; }
+
+.gray, .white {
+  background: #e7e8e9;
+  color: #231f20;
+  margin-top: 10px; }
+  .gray span, .white span {
+    float: left; }
+
+.white {
+  background: #ffffff; }
+
+.rate {
+  margin-left: 100px; }
+
+.round-container {
+  width: 20px;
+  float: left;
+  margin: 0 2px; }
+  .old-ie .round-container {
+    width: 25px; }
+  @media only screen and (min-width: 698px) {
+    .round-container {
+      width: 25px; } }
+
+.round {
+  background: #d01c5d;
+  width: 100%;
+  height: 20px;
+  border-radius: 100%;
+  box-shadow: inset 15px -9px 19px -14px #ffffff;
+  border-bottom: 1px ridge rgba(197, 59, 133, 0.42);
+  border-left: 1px ridge rgba(255, 244, 250, 0.33);
+  border-top: 2px ridge rgba(255, 255, 255, 0.43);
+  margin-top: 5px; }
+  .old-ie .round {
+    height: 25px;
+    margin-top: 2px; }
+  @media only screen and (min-width: 698px) {
+    .round {
+      height: 25px;
+      margin-top: 2px; } }
+
+.empty {
+  background: #ceaab6;
+  border: none;
+  box-shadow: none; }
+
+#fun-title:before {
+  background-position: 53% 86%; }
+
+#fun-facts li {
+  padding: 0; }
+
+#fun-facts li p {
+  padding-left: 35px;
+  display: block;
+  vertical-align: middle;
+  margin: 0;
+  position: relative;
+  top: -25px; }
+
+#fun-facts li:before {
+  position: relative;
+  display: inline-block;
+  background: url(../images/spry.png) no-repeat;
+  content: '';
+  height: 30px;
+  left: 0;
+  width: 34px;
+  top: 0;
+  background-position: 35% 97%; }
+
+#fun-facts li:nth-child(2):before {
+  background-position: 28% 97%; }
+
+#fun-facts li:nth-child(4):before {
+  background-position: 20% 97%; }
+
+/*
+==============================================================
+6. Footer
+==============================================================
+*/
+footer > .module_containeir > div {
+  float: left;
+  margin-right: 5px; }
+
+/*
+==============================================================
+7. Modals
+==============================================================
+*/
+.ng-modal-dialog {
+  border-radius: 15px;
+  width: 100%; }
+  .old-ie .ng-modal-dialog {
+    width: 50%; }
+  @media only screen and (min-width: 698px) {
+    .ng-modal-dialog {
+      width: 50%; } }
+  .ng-modal-dialog ul li img {
+    vertical-align: middle; }
+
+.modal-container {
+  margin: 10px auto; }
+
+.close {
+  background: url(../images/spry.png) no-repeat;
+  height: 30px;
+  width: 30px;
+  background-position: 13% 97%; }
+
+.ng-modal-dialog-content {
+  padding: 0 10px;
+  text-align: left; }
+
+/*
+==============================================================
+8. Preloader
+==============================================================
+*/
+.spinner {
+  margin: 20% auto;
+  width: 20px;
+  height: 20px;
+  position: relative; }
+
+.container1 > div, .container2 > div, .container3 > div {
+  width: 6px;
+  height: 6px;
+  background-color: #9e1f63;
+  border-radius: 100%;
+  position: absolute;
+  -webkit-animation: bouncedelay 1.2s infinite ease-in-out;
+  animation: bouncedelay 1.2s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+#preloader {
+  position: fixed;
+  background: #fcfbfb;
+  /* The Fallback */
+  background: rgba(252, 251, 251, 0.87);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  padding: 0; }
+
+.spinner .spinner-container {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+
+.container2 {
+  -webkit-transform: rotateZ(45deg);
+  transform: rotateZ(45deg); }
+
+.container3 {
+  -webkit-transform: rotateZ(90deg);
+  transform: rotateZ(90deg); }
+
+.circle1 {
+  top: 0;
+  left: 0; }
+
+.circle2 {
+  top: 0;
+  right: 0; }
+
+.circle3 {
+  right: 0;
+  bottom: 0; }
+
+.circle4 {
+  left: 0;
+  bottom: 0; }
+
+.container2 .circle1 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s; }
+
+.container3 .circle1 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s; }
+
+.container1 .circle2 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s; }
+
+.container2 .circle2 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s; }
+
+.container3 .circle2 {
+  -webkit-animation-delay: -0.7s;
+  animation-delay: -0.7s; }
+
+.container1 .circle3 {
+  -webkit-animation-delay: -0.6s;
+  animation-delay: -0.6s; }
+
+.container2 .circle3 {
+  -webkit-animation-delay: -0.5s;
+  animation-delay: -0.5s; }
+
+.container3 .circle3 {
+  -webkit-animation-delay: -0.4s;
+  animation-delay: -0.4s; }
+
+.container1 .circle4 {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s; }
+
+.container2 .circle4 {
+  -webkit-animation-delay: -0.2s;
+  animation-delay: -0.2s; }
+
+.container3 .circle4 {
+  -webkit-animation-delay: -0.1s;
+  animation-delay: -0.1s; }
+
+.show-setup {
+  -webkit-transition: 1s linear all;
+  /* Safari/Chrome */
+  -moz-transition: 1s linear all;
+  /* Firefox */
+  -ms-transition: 1s linear all;
+  /* IE10 */
+  -o-transition: 1s linear all;
+  /* Opera */
+  transition: 1s linear all;
+  /* Future Browsers */
+  /* The animation preparation code */
+  opacity: 1; }
+
+.show-setup.show-start {
+  /* The animation code itself */
+  opacity: 0; }
+
+/*
+==============================================================
+9. IE8
+==============================================================
+*/
+.old-ie #ie-wrapper1 {
+  position: absolute;
+  width: 100%; }
+
+.old-ie #ie-wrapper2 {
+  position: relative;
+  width: 970px;
+  margin: auto auto; }
+
+.old-ie #fun-facts li:first-child + li:before {
+  background-position: 28% 97%; }
+
+.old-ie #fun-facts li:first-child + li + li + li:before {
+  background-position: 20% 97%; }
+
+.old-ie footer > .module_containeir > div {
+  background: #ffffff;
+  clear: both;
+  width: 100%; }
+
+.old-ie .ie-hide {
+  display: none; }
+
+.old-ie #spacer {
+  width: 5px;
+  float: left;
+  margin: 0 20px; }
+
+/*
+==============================================================
+10. debug
+==============================================================
+
+* { outline: 2px dotted red ;     -webkit-box-sizing:  border-box;
+       box-sizing:  border-box;}
+* * { outline: 2px dotted green }
+* * * { outline: 2px dotted orange }
+* * * * { outline: 2px dotted blue }
+* * * * * { outline: 1px solid red }
+* * * * * * { outline: 1px solid green }
+* * * * * * * { outline: 1px solid orange }
+* * * * * * * * { outline: 1px solid blue }
+
+*/
